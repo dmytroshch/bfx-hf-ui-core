@@ -20,9 +20,6 @@ const mapDispatchToProps = dispatch => ({
   dsExecuteLiveStrategy: (strategyId, {
     authToken, name, symbol, tf, includeTrades, strategy, seedCandleCount, margin,
   }) => {
-    dispatch(WSActions.setExecutionOption(strategyId, {
-      includeTrades, seedCandleCount, symbol, tf, margin,
-    }))
     dispatch(WSActions.send(['strategy.execute_start', authToken, name, symbol, tf, includeTrades, strategy, seedCandleCount, margin]))
     dispatch(WSActions.setExecutionLoading(true))
   },
